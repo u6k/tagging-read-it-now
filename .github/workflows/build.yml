@@ -20,8 +20,6 @@ jobs:
         run: cp .env.original .env
       - name: Lint
         run: docker-compose run app pipenv run lint
-      - name: Test
-        run: docker-compose run app pipenv run test
 
       # Slack notification
       - name: Slack notification on success
