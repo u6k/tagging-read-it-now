@@ -3,6 +3,7 @@ import logging
 import logging.config
 import os
 import warnings
+from time import sleep
 
 import requests
 
@@ -138,6 +139,7 @@ if __name__ == "__main__":
     updated_count = 0
     bookmarks = None
     count_of_items = int(os.environ["COUNT_OF_ITEMS"])
+    interval = int(os.environ["LINKACE_API_INTERVAL"])
 
     while updated_count < count_of_items:
         if bookmarks:
@@ -153,3 +155,5 @@ if __name__ == "__main__":
 
             if updated_count >= count_of_items:
                 break
+
+            sleep(interval)
