@@ -137,8 +137,9 @@ def tagging_read_it_now(bookmark_id):
 if __name__ == "__main__":
     updated_count = 0
     bookmarks = None
+    count_of_items = int(os.environ["COUNT_OF_ITEMS"])
 
-    while updated_count < 20:
+    while updated_count < count_of_items:
         if bookmarks:
             bookmarks = get_read_it_later_bookmarks(bookmarks["next_page_url"])
         else:
@@ -150,5 +151,5 @@ if __name__ == "__main__":
             if result:
                 updated_count += 1
 
-            if updated_count >= 20:
+            if updated_count >= count_of_items:
                 break
